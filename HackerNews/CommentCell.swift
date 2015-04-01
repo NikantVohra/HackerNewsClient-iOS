@@ -47,6 +47,12 @@ class CommentCell: UITableViewCell {
             separatorInset = UIEdgeInsets(top: 0, left: 35, bottom: 0, right: 0)
             indentView.hidden = true
         }
+        if (HNManager.sharedManager().hasVotedOnObject(comment)) {
+            upvoreButton.imageView?.image = UIImage(named: "icon-upvote-active")
+        }
+        else {
+            upvoreButton.imageView?.image = UIImage(named: "icon-upvote")
+        }
     }
     
     @IBAction func didTouchUpvoteButton(sender: AnyObject) {

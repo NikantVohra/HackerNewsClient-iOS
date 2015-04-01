@@ -110,7 +110,16 @@ class CommentsViewController: UITableViewController,ReplyViewControllerDelegate,
     func commentTableViewCellDidTouchUpvote(cell: CommentCell){
         if HNManager.sharedManager().userIsLoggedIn() {
             let indexPath = tableView.indexPathForCell(cell)!
-            let comment = comments[indexPath.row - 1]
+            let comment = comments[indexPath.row]
+            HNManager.sharedManager().voteOnPostOrComment(comment, direction: VoteDirection.Up, completion: { (success) -> Void in
+                if(success) {
+                    HNManager.sharedManager().addHNObjectToVotedOnDictionary(comment, direction: VoteDirection.Up)
+                    cell.configureWithComment(comment)
+                }
+                else {
+                    self.showAlert()
+                }
+            })
             cell.configureWithComment(comment)
         } else {
             performSegueWithIdentifier("loginSegue", sender: self)
@@ -129,7 +138,16 @@ class CommentsViewController: UITableViewController,ReplyViewControllerDelegate,
     
     func storyTableViewCellDidTouchUpvote(cell: StoryCell, sender: AnyObject) {
         if HNManager.sharedManager().userIsLoggedIn(){
-            let indexPath = tableView.indexPathForCell(cell)!
+            HNManager.sharedManager().voteOnPostOrComment(story, direction: VoteDirection.Up, completion: { (success) -> Void in
+                if(success) {
+                    HNManager.sharedManager().addHNObjectToVotedOnDictionary(self.story, direction: VoteDirection.Up)
+                    self.story!.Points = self.story!.Points + 1
+                    cell.configureWithStory(self.story!)
+                }
+                else {
+                    self.showAlert()
+                }
+            })
             cell.configureWithStory(story)
         } else {
             performSegueWithIdentifier("loginSegue", sender: self)
@@ -142,6 +160,14 @@ class CommentsViewController: UITableViewController,ReplyViewControllerDelegate,
         } else {
             performSegueWithIdentifier("replySegue", sender: cell)
         }
+    }
+    
+    
+    func showAlert() {
+        self.view.hideLoading()
+        var alert = UIAlertController(title: "Oh noes.", message: "Something went wrong. Your message wasn't sent. Try again and save your text just in case.", preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+        self.presentViewController(alert, animated: true, completion: nil)
     }
     
 

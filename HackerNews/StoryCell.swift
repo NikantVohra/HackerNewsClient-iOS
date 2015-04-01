@@ -32,6 +32,7 @@ class StoryCell: UITableViewCell {
         let commentCount = story!.CommentCount
         let createdAt = story!.TimeCreatedString
        // let commentHTML = story["text"].string ?? ""
+        
         authorLabel.text = author
         titleLabel.text = title
         commentButton.setTitle(toString(commentCount), forState: UIControlState.Normal)
@@ -40,8 +41,18 @@ class StoryCell: UITableViewCell {
 //                        commentTextView.attributedText = htmlToAttributedString(commentHTML + "<style>*{font-family:\"Avenir Next\";font-size:16px;line-height:20px}img{max-width:300px}</style>")
 //        }
 //
+        if let commentTextView = commentTextView {
+            commentTextView.text = ""
+        }
         
-        
+        // Find out if a post has been voted on
+        if (HNManager.sharedManager().hasVotedOnObject(story)) {
+            // User has voted on the Post/Comment
+            upvoteButton.imageView?.image = UIImage(named: "icon-upvote-active")
+        }
+        else {
+            upvoteButton.imageView?.image = UIImage(named: "icon-upvote")
+        }
         timeLabel.text = createdAt
         
     }

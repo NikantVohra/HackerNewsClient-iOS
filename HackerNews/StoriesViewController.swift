@@ -181,7 +181,23 @@ class StoriesViewController: UITableViewController,MenuViewControllerDelegate,St
     // MARK: StoryTableViewCellDelegate
     
     func storyTableViewCellDidTouchUpvote(cell: StoryCell, sender: AnyObject) {
-
+        if HNManager.sharedManager().userIsLoggedIn() {
+            let indexPath = tableView.indexPathForCell(cell)!
+            let story = stories[indexPath.row]
+            HNManager.sharedManager().voteOnPostOrComment(story, direction: VoteDirection.Up, completion: { (success) -> Void in
+                if(success) {
+                    HNManager.sharedManager().addHNObjectToVotedOnDictionary(story, direction: VoteDirection.Up)
+                    story.Points = story.Points + 1
+                    cell.configureWithStory(story)
+                }
+                else {
+                    self.showAlert()
+                }
+            })
+            cell.configureWithStory(story)
+        } else {
+            performSegueWithIdentifier("loginSegue", sender: self)
+        }
     }
     
     func storyTableViewCellDidTouchComment(cell: StoryCell, sender: AnyObject) {
@@ -196,4 +212,11 @@ class StoriesViewController: UITableViewController,MenuViewControllerDelegate,St
         view.showLoading()
     }
     
+    
+    func showAlert() {
+        self.view.hideLoading()
+        var alert = UIAlertController(title: "Oh noes.", message: "Something went wrong. The post wasn't upvoted.", preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+        self.presentViewController(alert, animated: true, completion: nil)
+    }
 }
