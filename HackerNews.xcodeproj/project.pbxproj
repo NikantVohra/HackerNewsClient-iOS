@@ -55,6 +55,7 @@
 		053132E31AC83473005AEFAE /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053132E21AC83473005AEFAE /* SwiftyJSON.swift */; };
 		0570B6331AC91AC700BBC58A /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0570B6321AC91AC700BBC58A /* CommentCell.swift */; };
 		0570B6351AC91C7200BBC58A /* CommentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0570B6341AC91C7200BBC58A /* CommentsViewController.swift */; };
+		05933EA01ACBE852000E199D /* ReplyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05933E9F1ACBE852000E199D /* ReplyViewController.swift */; };
 		3369DB0227FD888CDB84FB9D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B7BA506F8B7469BCF35920ED /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -175,6 +176,7 @@
 		055F31A91ACAED36000E42A5 /* HackerNews-BridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HackerNews-BridgingHeader.h"; sourceTree = "<group>"; };
 		0570B6321AC91AC700BBC58A /* CommentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
 		0570B6341AC91C7200BBC58A /* CommentsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentsViewController.swift; sourceTree = "<group>"; };
+		05933E9F1ACBE852000E199D /* ReplyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReplyViewController.swift; sourceTree = "<group>"; };
 		7745D2007F91233CC6DC6683 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		B7BA506F8B7469BCF35920ED /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		E73AA9A8F9F62B12F8A9F86A /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -236,6 +238,7 @@
 				0570B6341AC91C7200BBC58A /* CommentsViewController.swift */,
 				053132BE1AC82FBD005AEFAE /* HNService.swift */,
 				053132501AC52553005AEFAE /* Main.storyboard */,
+				05933E9F1ACBE852000E199D /* ReplyViewController.swift */,
 				053132E21AC83473005AEFAE /* SwiftyJSON.swift */,
 				053132531AC52553005AEFAE /* Images.xcassets */,
 				053132551AC52553005AEFAE /* LaunchScreen.xib */,
@@ -532,6 +535,7 @@
 				053132901AC5277D005AEFAE /* DesignableImageView.swift in Sources */,
 				053132A01AC5277D005AEFAE /* SpringImageView.swift in Sources */,
 				0531324F1AC52553005AEFAE /* LoginViewController.swift in Sources */,
+				05933EA01ACBE852000E199D /* ReplyViewController.swift in Sources */,
 				053132AB1AC53955005AEFAE /* MenuViewController.swift in Sources */,
 				0531329C1AC5277D005AEFAE /* SoundPlayer.swift in Sources */,
 				053132A31AC5277D005AEFAE /* SpringTextView.swift in Sources */,

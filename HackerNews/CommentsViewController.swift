@@ -8,12 +8,13 @@
 
 import UIKit
 
-class CommentsViewController: UITableViewController {
+class CommentsViewController: UITableViewController,ReplyViewControllerDelegate,StoryTableViewCellDelegate, CommentTableViewCellDelegate {
 
     var story:HNPost? 
     var isFirstTime = true
+    var transitionManager = TransitionManager()
     
-    var comments:[HNComment]? = [] {
+    var comments:[HNComment]! = [] {
         didSet {
             tableView.reloadData()
         }
@@ -35,6 +36,11 @@ class CommentsViewController: UITableViewController {
         }
     }
     
+    func reloadStory() {
+        view.showLoading()
+        self.loadCommments()
+    }
+    
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return comments!.count + 1
     }
@@ -47,12 +53,15 @@ class CommentsViewController: UITableViewController {
         
         if let storyCell = cell as? StoryCell {
             storyCell.configureWithStory(story)
+            storyCell.delegate = self
         }
         
         if let commentCell = cell as? CommentCell {
             let comment = comments![indexPath.row - 1]
             commentCell.configureWithComment(comment)
+            commentCell.delegate = self
         }
+        
         
         return cell
     }
@@ -72,5 +81,68 @@ class CommentsViewController: UITableViewController {
         
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "replySegue" {
+            let toView = segue.destinationViewController as ReplyViewController
+            if let cell = sender as? CommentCell {
+                let indexPath = tableView.indexPathForCell(cell)!
+                let comment = comments[indexPath.row - 1]
+                toView.comment = comment
+            }
+            
+            if let cell = sender as? StoryCell {
+                toView.story = story
+            }
+            
+            toView.delegate = self
+            toView.transitioningDelegate = transitionManager
+        }
+    }
     
+    // MARK: ReplyViewControllerDelegate
+    
+    func replyViewControllerDidSend(controller: ReplyViewController) {
+        reloadStory()
+    }
+    
+    // MARK: CommentTableViewCellDelegate
+    
+    func commentTableViewCellDidTouchUpvote(cell: CommentCell){
+        if HNManager.sharedManager().userIsLoggedIn() {
+            let indexPath = tableView.indexPathForCell(cell)!
+            let comment = comments[indexPath.row - 1]
+            cell.configureWithComment(comment)
+        } else {
+            performSegueWithIdentifier("loginSegue", sender: self)
+        }
+
+    }
+    func commentTableViewCellDidTouchComment(cell: CommentCell){
+        if !HNManager.sharedManager().userIsLoggedIn() {
+            performSegueWithIdentifier("loginSegue", sender: self)
+        } else {
+            performSegueWithIdentifier("replySegue", sender: cell)
+        }
+    }
+    
+    // MARK: StoryTableViewCellDelegate
+    
+    func storyTableViewCellDidTouchUpvote(cell: StoryCell, sender: AnyObject) {
+        if HNManager.sharedManager().userIsLoggedIn(){
+            let indexPath = tableView.indexPathForCell(cell)!
+            cell.configureWithStory(story)
+        } else {
+            performSegueWithIdentifier("loginSegue", sender: self)
+        }
+    }
+    
+    func storyTableViewCellDidTouchComment(cell: StoryCell, sender: AnyObject) {
+        if !HNManager.sharedManager().userIsLoggedIn() {
+            performSegueWithIdentifier("loginSegue", sender: self)
+        } else {
+            performSegueWithIdentifier("replySegue", sender: cell)
+        }
+    }
+    
+
 }

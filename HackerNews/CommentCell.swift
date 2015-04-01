@@ -8,6 +8,8 @@
 
 import UIKit
 
+
+
 class CommentCell: UITableViewCell {
 
     @IBOutlet weak var avatarImageView: AsyncImageView!
@@ -22,18 +24,18 @@ class CommentCell: UITableViewCell {
     
     @IBOutlet weak var indentView: UIView!
     @IBOutlet weak var avatarLeftConstraint: NSLayoutConstraint!
+    
+    weak var delegate: CommentTableViewCellDelegate?
+
     func configureWithComment(comment: HNComment?) {
         let userDisplayName = comment!.Username
         let createdAt = comment!.TimeCreatedString
         let bodyHTML = comment!.Text
         authorLabel.text = userDisplayName
         timeLabel.text = createdAt
-//        var html = bodyHTML + "<style>*{font-family:\"Avenir Next\";font-size:16px;line-height:20px}img{max-width:300px}</style>"
-//        var attributedString = NSAttributedString(data: html.dataUsingEncoding(NSUnicodeStringEncoding, allowLossyConversion: true)!, options: [NSDocumentTypeDocumentAttribute : NSHTMLTextDocumentType], documentAttributes: nil, error: nil)
+
         commentTextView.text = bodyHTML
-//        for link in comment!.Links {
-//            commentTextView.addLinkToURL(link.Url, withRange: link.UrlRange)
-//        }
+
         
         let depth = comment!.Level > 4 ? 4 : comment!.Level
         if depth > 0 {
@@ -47,7 +49,24 @@ class CommentCell: UITableViewCell {
         }
     }
     
+    @IBAction func didTouchUpvoteButton(sender: AnyObject) {
+        delegate?.commentTableViewCellDidTouchUpvote(self)
+        upvoreButton.animation = "pop"
+        upvoreButton.force = 3
+        upvoreButton.animate()
+
+    }
     
-    
-    
+    @IBAction func didTouchReplyButton(sender: AnyObject) {
+        delegate?.commentTableViewCellDidTouchComment(self)
+        replyButton.animation = "pop"
+        replyButton.force = 3
+        replyButton.animate()
+    }
+}
+
+
+protocol CommentTableViewCellDelegate: class {
+    func commentTableViewCellDidTouchUpvote(cell: CommentCell)
+    func commentTableViewCellDidTouchComment(cell: CommentCell)
 }
