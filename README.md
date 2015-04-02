@@ -35,11 +35,11 @@ $ open HackerNews.xcodeproj
 
 # Credits
 
-- [Alamofire][] for network request
+- [libHN][] for Hacker News API requests
 - [DTCoreText][] for fast and efficient HTML content display
 - [Spring][] for code-less animation
 
-[Alamofire]:https://github.com/Alamofire/Alamofire
+[libHN]:https://github.com/bennyguitar/libHN
 [DTCoreText]:https://github.com/Cocoanetics/DTCoreText
 [Design+Code]:http://designcode.io
 [Designer News]:https://news.layervault.com
