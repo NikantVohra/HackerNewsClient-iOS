@@ -2,15 +2,15 @@
 
 ![](ScreenShots/ScreenShot-Screens.png)
 
-Simple [iOS client](https://itunes.apple.com/us/app/designer-news-app/id879990495?ls=1&mt=8) for [Designer News][], by the creator of [Design+Code][] and the team, written in Swift.
+Simple iOS client for [Hacker News][], inspired by the DesigerNews Client made by [Meng To](https://github.com/MengTo) of [Design+Code]() , written in Swift.
 
 ## Usage
 
 1) Download the repository
 
 ```
-$ git clone https://github.com/MengTo/DesignerNewsApp.git
-$ cd DesignerNewsApp
+$ git clone https://github.com/NikantVohra/HackerNewsClient-iOS
+$ cd HackerNewsClient-iOS
 ```
     
 2) Initialize submodule dependancies
@@ -22,12 +22,11 @@ $ git submodule update --init --recursive
 3) Open the project in Xcode
 
 ```
-$ open DesignerNewsApp.xcodeproj
+$ open HackerNews.xcodeproj
 ```
 
 4) Compile and run the app in your simulator
 
-![](Screenshots/designer-news-compile-and-run.jpg)
 
 # Requirements
 
