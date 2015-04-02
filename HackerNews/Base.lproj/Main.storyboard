@@ -535,7 +535,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XzY-Yl-zEd">
-                                <rect key="frame" x="16" y="0.0" width="288" height="568"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </webView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4lB-H1-gEL" customClass="DesignableButton" customModule="HackerNews" customModuleProvider="target">
@@ -572,9 +572,12 @@
                                         <real key="value" value="22"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="didPressShareButton:" destination="ZhE-gf-J9I" eventType="touchUpInside" id="AbT-NL-Z5h"/>
+                                </connections>
                             </button>
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progressViewStyle="bar" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="FGC-Sl-cTD">
-                                <rect key="frame" x="16" y="18.5" width="288" height="2.5"/>
+                                <rect key="frame" x="16" y="18" width="288" height="3"/>
                                 <color key="progressTintColor" red="0.0" green="0.85882352939999995" blue="0.72156862749999995" alpha="1" colorSpace="calibratedRGB"/>
                             </progressView>
                         </subviews>
@@ -582,6 +585,7 @@
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="FGC-Sl-cTD" secondAttribute="trailing" constant="154" id="397-zQ-SsY"/>
                             <constraint firstItem="FGC-Sl-cTD" firstAttribute="leading" secondItem="NRj-xO-azY" secondAttribute="leadingMargin" constant="-16" id="7vr-RN-rwp"/>
+                            <constraint firstItem="XzY-Yl-zEd" firstAttribute="leading" secondItem="NRj-xO-azY" secondAttribute="leading" id="8iv-jS-Xi1"/>
                             <constraint firstAttribute="trailingMargin" secondItem="FGC-Sl-cTD" secondAttribute="trailing" constant="154" id="BzZ-xh-3n1"/>
                             <constraint firstItem="s5y-pW-WRb" firstAttribute="height" secondItem="4lB-H1-gEL" secondAttribute="height" id="Cjg-E1-CxP"/>
                             <constraint firstItem="FGC-Sl-cTD" firstAttribute="leading" secondItem="NRj-xO-azY" secondAttribute="leadingMargin" constant="-16" id="HM9-QL-AYu"/>
@@ -590,15 +594,14 @@
                             <constraint firstItem="FME-20-6a1" firstAttribute="top" secondItem="FGC-Sl-cTD" secondAttribute="bottom" id="RNU-Px-RaP"/>
                             <constraint firstItem="s5y-pW-WRb" firstAttribute="width" secondItem="4lB-H1-gEL" secondAttribute="width" id="T1W-HA-X6y"/>
                             <constraint firstItem="4lB-H1-gEL" firstAttribute="leading" secondItem="NRj-xO-azY" secondAttribute="leadingMargin" id="cmt-f0-p0k"/>
-                            <constraint firstItem="9jW-gn-M7O" firstAttribute="top" secondItem="XzY-Yl-zEd" secondAttribute="bottom" id="cy5-A2-gNa"/>
-                            <constraint firstItem="XzY-Yl-zEd" firstAttribute="top" secondItem="NRj-xO-azY" secondAttribute="topMargin" id="dx2-mA-3Br"/>
+                            <constraint firstItem="XzY-Yl-zEd" firstAttribute="top" secondItem="NRj-xO-azY" secondAttribute="top" id="dQa-Il-wbk"/>
+                            <constraint firstItem="XzY-Yl-zEd" firstAttribute="bottom" secondItem="9jW-gn-M7O" secondAttribute="top" id="dic-Dj-4tg"/>
                             <constraint firstItem="FGC-Sl-cTD" firstAttribute="leading" secondItem="NRj-xO-azY" secondAttribute="leadingMargin" id="gqc-nd-tZf"/>
                             <constraint firstAttribute="trailingMargin" secondItem="FGC-Sl-cTD" secondAttribute="trailing" id="hjr-AR-EdX"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="XzY-Yl-zEd" secondAttribute="trailing" id="mGk-ph-jqe"/>
+                            <constraint firstItem="XzY-Yl-zEd" firstAttribute="centerX" secondItem="FGC-Sl-cTD" secondAttribute="centerX" id="oup-9P-41j"/>
                             <constraint firstItem="s5y-pW-WRb" firstAttribute="leading" secondItem="4lB-H1-gEL" secondAttribute="trailing" constant="15" id="rEM-WO-HWX"/>
                             <constraint firstItem="FME-20-6a1" firstAttribute="top" secondItem="FGC-Sl-cTD" secondAttribute="bottom" constant="18.5" id="we9-90-oMI"/>
                             <constraint firstItem="FME-20-6a1" firstAttribute="top" secondItem="FGC-Sl-cTD" secondAttribute="bottom" id="xnb-OG-NeK"/>
-                            <constraint firstItem="XzY-Yl-zEd" firstAttribute="leading" secondItem="NRj-xO-azY" secondAttribute="leadingMargin" id="zjc-kb-qQj"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -619,7 +622,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MaH-I3-FCD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1786" y="424"/>
+            <point key="canvasLocation" x="1803" y="349"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="fGo-sr-WgO">
@@ -885,7 +888,18 @@
                             <outlet property="delegate" destination="3hc-HK-sUt" id="HAe-L5-NeQ"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" id="Goh-Um-Dwh">
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="as5-7Y-zZa">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="didPressShareButton:" destination="3hc-HK-sUt" id="qJM-07-o0p"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="eY8-Ay-y5j">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </refreshControl>
                     <connections>
                         <segue destination="1dO-r2-My7" kind="presentation" identifier="replySegue" modalTransitionStyle="crossDissolve" id="gBb-Kv-iRf"/>
                         <segue destination="BYZ-38-t0r" kind="presentation" identifier="loginSegue" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="QaB-DF-dAn"/>
@@ -893,7 +907,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U3g-LO-xQS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1895" y="1074"/>
+            <point key="canvasLocation" x="1830" y="1068"/>
         </scene>
         <!--Web View Controller-->
         <scene sceneID="TT1-X7-xRp">

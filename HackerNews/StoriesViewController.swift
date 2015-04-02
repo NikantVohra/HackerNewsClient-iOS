@@ -16,6 +16,8 @@ class StoriesViewController: UITableViewController,MenuViewControllerDelegate,St
     let transitionManager = TransitionManager()
     var currentPostType: PostFilterType = PostFilterType.Top
     let HNDidLoginOrOutNotification = "DidLoginOrOut"
+    var shouldLoadNewPosts = true
+    var nextPageUrlAddition: String? = nil
     
     @IBOutlet weak var loginButton: UIBarButtonItem!
     struct Constants {
@@ -80,14 +82,23 @@ class StoriesViewController: UITableViewController,MenuViewControllerDelegate,St
             if let s = self {
                 s.refreshControl?.endRefreshing()
                 if let p = posts as? [HNPost] {
-                    s.stories = p
+                    s.stories = (s.shouldLoadNewPosts ? p : s.stories + p)
                     s.view.hideLoading()
+                    s.nextPageUrlAddition = urlAddition!
+                    s.shouldLoadNewPosts = false
                 }
             }
         }
+        if(shouldLoadNewPosts) {
+            HNManager.sharedManager().loadPostsWithFilter(section, completion:completion)
+        }
         
-        HNManager.sharedManager().loadPostsWithFilter(section, completion:completion)
+        if (nextPageUrlAddition != nil && NSString(string: nextPageUrlAddition!).length > 0) {
+            HNManager.sharedManager().loadPostsWithUrlAddition(nextPageUrlAddition!, completion: completion)
+            return
+        }
         
+
         
     }
     
@@ -116,38 +127,50 @@ class StoriesViewController: UITableViewController,MenuViewControllerDelegate,St
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
     
+    override func scrollViewDidScroll(scrollView: UIScrollView) {
+        var indexes = tableView.indexPathsForVisibleRows()
+        if (indexes != nil && indexes?.count > 0) {
+            let i = indexes![indexes!.count - 1] as NSIndexPath
+            if (i.row == stories.count - 3 ) {
+                loadStories(section)
+            }
+        }
+    }
+
+    
     func menuViewControllerDidTouchTop(controller: MenuViewController) {
-        view.showLoading()
-        section = PostFilterType.Top
-        loadStories(section)
+        didSelectMenuOption(PostFilterType.Top)
         navigationItem.title = "Top Stories"
         
     }
     
     func menuViewControllerDidTouchRecent(controller: MenuViewController) {
-        view.showLoading()
-        section = PostFilterType.New
-        loadStories(section)
+        didSelectMenuOption(PostFilterType.New)
         navigationItem.title = "Recent Stories"
         
     }
     
     func menuViewControllerDidTouchShow(controller: MenuViewController) {
-        view.showLoading()
-        section = PostFilterType.ShowHN
-        loadStories(section)
+        didSelectMenuOption(PostFilterType.ShowHN)
         navigationItem.title = "Show HN"
         
     }
     
     func menuViewControllerDidTouchAsk(controller: MenuViewController) {
-        view.showLoading()
-        section = PostFilterType.Ask
-        loadStories(section)
+        didSelectMenuOption(PostFilterType.Ask)
         navigationItem.title = "Ask HN"
         
     }
     
+    
+    func didSelectMenuOption(newSection : PostFilterType) {
+        view.showLoading()
+        shouldLoadNewPosts = true
+        nextPageUrlAddition = nil
+        section = newSection
+        nextPageUrlAddition = nil
+        loadStories(section)
+    }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "commentsSegue" {
@@ -166,7 +189,7 @@ class StoriesViewController: UITableViewController,MenuViewControllerDelegate,St
             let indexPath = sender as NSIndexPath
             let url = stories[indexPath.row].UrlString
             toView.url = url
-            
+            toView.story = stories[indexPath.row]
             UIApplication.sharedApplication().setStatusBarHidden(true, withAnimation: UIStatusBarAnimation.Fade)
             
             toView.transitioningDelegate = transitionManager
@@ -208,8 +231,13 @@ class StoriesViewController: UITableViewController,MenuViewControllerDelegate,St
     
     func loginViewControllerDidLogin(controller: LoginViewController) {
        // setLoginButton()
-        loadStories(section)
+        
+        
         view.showLoading()
+        shouldLoadNewPosts = true
+        nextPageUrlAddition = nil
+        nextPageUrlAddition = nil
+        loadStories(section)
     }
     
     
@@ -219,4 +247,6 @@ class StoriesViewController: UITableViewController,MenuViewControllerDelegate,St
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
         self.presentViewController(alert, animated: true, completion: nil)
     }
+    
+    
 }

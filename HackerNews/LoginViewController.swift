@@ -42,6 +42,7 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
     
     
     @IBAction func didPressLoginButton(sender: AnyObject) {
+        view.showLoading()
         
         HNManager.sharedManager().loginWithUsername(emailTextField.text, password: passwordTextField.text) {
             [weak self](user) -> Void in
@@ -49,10 +50,12 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
                 print(user.Karma)
                 self!.dismissViewControllerAnimated(true, completion: nil)
                 self!.delegate?.loginViewControllerDidLogin(self!)
+                self!.view.hideLoading()
             }
             else {
                 self!.dialogView.animation = "shake"
                 self!.dialogView.animate()
+                self!.view.hideLoading()
             }
 
         }

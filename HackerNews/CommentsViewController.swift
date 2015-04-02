@@ -41,6 +41,14 @@ class CommentsViewController: UITableViewController,ReplyViewControllerDelegate,
         self.loadCommments()
     }
     
+    @IBAction func didPressShareButton(sender: AnyObject) {
+        var title = story!.Title
+        var url = story!.UrlString
+        let activityViewController = UIActivityViewController(activityItems: [title, url], applicationActivities: nil)
+        activityViewController.setValue(title, forKey: "subject")
+        activityViewController.excludedActivityTypes = [UIActivityTypeAirDrop]
+        presentViewController(activityViewController, animated: true, completion: nil)
+    }
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return comments!.count + 1
     }
@@ -61,7 +69,7 @@ class CommentsViewController: UITableViewController,ReplyViewControllerDelegate,
             commentCell.configureWithComment(comment)
             commentCell.delegate = self
         }
-        
+        refreshControl?.addTarget(self, action: "refreshComments", forControlEvents: UIControlEvents.ValueChanged)
         
         return cell
     }
@@ -161,6 +169,12 @@ class CommentsViewController: UITableViewController,ReplyViewControllerDelegate,
             performSegueWithIdentifier("replySegue", sender: cell)
         }
     }
+    
+    func refreshComments() {
+        self.refreshControl?.beginRefreshing()
+        loadCommments()
+    }
+    
     
     
     func showAlert() {

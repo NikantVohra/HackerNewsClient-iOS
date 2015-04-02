@@ -13,12 +13,20 @@ class WebViewController: UIViewController, UIWebViewDelegate {
     
     @IBOutlet weak var webView: UIWebView!
     var url: String!
-    
+    var story: HNPost?
     @IBOutlet weak var progressView: UIProgressView!
     var hasFinishedLoading = false
     
     
     
+    @IBAction func didPressShareButton(sender: AnyObject) {
+        var title = story!.Title
+        var url = story!.UrlString
+        let activityViewController = UIActivityViewController(activityItems: [title, url], applicationActivities: nil)
+        activityViewController.setValue(title, forKey: "subject")
+        activityViewController.excludedActivityTypes = [UIActivityTypeAirDrop]
+        presentViewController(activityViewController, animated: true, completion: nil)
+    }
     
     
     @IBAction func closeButtonDidTouch(sender: AnyObject) {
