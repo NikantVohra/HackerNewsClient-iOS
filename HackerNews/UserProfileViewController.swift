@@ -21,12 +21,16 @@ class UserProfileViewController : UIViewController {
     @IBOutlet weak var averageLabel: UILabel!
     @IBOutlet weak var aboutLabel: UILabel!
 
+    @IBOutlet weak var averageTextLabel: UILabel!
+    @IBOutlet weak var karmaTextLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         self.nameLabel.text = ""
         self.karmaLabel.text = ""
         self.averageLabel.text = ""
         self.aboutLabel.text = ""
+        self.karmaTextLabel.text = ""
+        self.averageTextLabel.text = ""
         // Do any additional setup after loading the view, typically from a nib.
         
     }
@@ -35,10 +39,12 @@ class UserProfileViewController : UIViewController {
         view.showLoading()
         HNService.getUser(userName, response: { (userJSON) -> () in
             self.view.hideLoading()
-            self.nameLabel.text = userJSON["id"].string!
+            self.nameLabel.text = userJSON["id"].string ?? ""
             self.karmaLabel.text = String(userJSON["karma"].int!);
             self.averageLabel.text = String(userJSON["karma"].int! / (userJSON["submitted"].count))
-            self.aboutLabel.text = userJSON["about"].string!
+            self.aboutLabel.text = userJSON["about"].string ?? ""
+            self.karmaTextLabel.text = "karma"
+            self.averageTextLabel.text = "avg"
 
         })
     }

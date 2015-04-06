@@ -1106,7 +1106,9 @@
                     <connections>
                         <outlet property="aboutLabel" destination="ntr-FE-p5m" id="piq-XB-zbv"/>
                         <outlet property="averageLabel" destination="Dvq-4d-0gD" id="Igt-Hb-ACg"/>
+                        <outlet property="averageTextLabel" destination="9Nb-o3-hJk" id="atG-5o-ic1"/>
                         <outlet property="karmaLabel" destination="GJb-Wg-7qW" id="3hs-mg-SiP"/>
+                        <outlet property="karmaTextLabel" destination="6Pn-83-C3x" id="NRE-j3-048"/>
                         <outlet property="nameLabel" destination="0cw-He-E7P" id="ySf-X2-eij"/>
                     </connections>
                 </viewController>
