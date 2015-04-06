@@ -105,6 +105,18 @@ class CommentsViewController: UITableViewController,ReplyViewControllerDelegate,
             toView.delegate = self
             toView.transitioningDelegate = transitionManager
         }
+        if segue.identifier == "profileSegue" {
+            let toView = segue.destinationViewController as UserProfileViewController
+            if let cell = sender as? CommentCell {
+                let indexPath = tableView.indexPathForCell(cell)!
+                let comment = comments[indexPath.row - 1]
+                toView.userName = comment.Username
+            }
+            
+            if let cell = sender as? StoryCell {
+                toView.userName = story?.Username
+            }
+        }
     }
     
     // MARK: ReplyViewControllerDelegate
@@ -136,12 +148,15 @@ class CommentsViewController: UITableViewController,ReplyViewControllerDelegate,
     }
     func commentTableViewCellDidTouchComment(cell: CommentCell){
         if !HNManager.sharedManager().userIsLoggedIn() {
-            performSegueWithIdentifier("loginSegue", sender: self)
+            performSegueWithIdentifier("loginSegue", sender: cell)
         } else {
             performSegueWithIdentifier("replySegue", sender: cell)
         }
     }
     
+    func commentTableViewCellDidTouchAuthorLabel(cell: CommentCell) {
+        performSegueWithIdentifier("profileSegue", sender: cell)
+    }
     // MARK: StoryTableViewCellDelegate
     
     func storyTableViewCellDidTouchUpvote(cell: StoryCell, sender: AnyObject) {
@@ -162,6 +177,10 @@ class CommentsViewController: UITableViewController,ReplyViewControllerDelegate,
         }
     }
     
+    func  storyTableViewCellDidTouchAuthorLabel(cell: StoryCell, sender: AnyObject) {
+        performSegueWithIdentifier("profileSegue", sender: cell)
+    }
+    
     func storyTableViewCellDidTouchComment(cell: StoryCell, sender: AnyObject) {
         if !HNManager.sharedManager().userIsLoggedIn() {
             performSegueWithIdentifier("loginSegue", sender: self)
@@ -176,6 +195,7 @@ class CommentsViewController: UITableViewController,ReplyViewControllerDelegate,
     }
     
     
+
     
     func showAlert() {
         self.view.hideLoading()

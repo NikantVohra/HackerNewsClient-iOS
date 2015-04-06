@@ -15,7 +15,14 @@ class CommentCell: UITableViewCell {
     @IBOutlet weak var avatarImageView: AsyncImageView!
     
     @IBOutlet weak var timeLabel: UILabel!
-    @IBOutlet weak var authorLabel: UILabel!
+    @IBOutlet weak var authorLabel: UILabel!{
+        didSet {
+            let tapGestureRecognizer =  UITapGestureRecognizer(target: self, action: Selector("authorLabelTapped:"))
+            tapGestureRecognizer.numberOfTapsRequired = 1;
+            authorLabel.addGestureRecognizer(tapGestureRecognizer)
+            authorLabel.userInteractionEnabled = true
+        }
+    }
     
     @IBOutlet weak var upvoreButton: SpringButton!
     
@@ -27,6 +34,10 @@ class CommentCell: UITableViewCell {
     
     weak var delegate: CommentTableViewCellDelegate?
 
+    func authorLabelTapped(sender: AnyObject) {
+        delegate?.commentTableViewCellDidTouchAuthorLabel(self)
+    }
+    
     func configureWithComment(comment: HNComment?) {
         let userDisplayName = comment!.Username
         let createdAt = comment!.TimeCreatedString
@@ -75,4 +86,6 @@ class CommentCell: UITableViewCell {
 protocol CommentTableViewCellDelegate: class {
     func commentTableViewCellDidTouchUpvote(cell: CommentCell)
     func commentTableViewCellDidTouchComment(cell: CommentCell)
+    func commentTableViewCellDidTouchAuthorLabel(cell: CommentCell)
+
 }

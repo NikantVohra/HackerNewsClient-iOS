@@ -180,7 +180,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1340" y="431"/>
+            <point key="canvasLocation" x="1305" y="337"/>
         </scene>
         <!--Top Stories-->
         <scene sceneID="mue-Mr-BWk">
@@ -331,11 +331,12 @@
                         <segue destination="ZhE-gf-J9I" kind="presentation" identifier="webSegue" id="xQU-ul-fcL"/>
                         <segue destination="3hc-HK-sUt" kind="show" identifier="commentsSegue" id="ny3-BO-SdR"/>
                         <segue destination="BYZ-38-t0r" kind="presentation" identifier="loginSegue" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="GEt-fF-gmw"/>
+                        <segue destination="T9P-WU-4nT" kind="show" identifier="profileSegue" id="ejA-ZY-xk4"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3v6-RU-dwp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1407" y="1100"/>
+            <point key="canvasLocation" x="1483" y="1092"/>
         </scene>
         <!--Menu View Controller-->
         <scene sceneID="4xQ-nS-HNm">
@@ -453,7 +454,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gS5-MV-GDo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2372" y="1048"/>
+            <point key="canvasLocation" x="2696" y="1144"/>
         </scene>
         <!--Reply View Controller-->
         <scene sceneID="b2l-lR-7tN">
@@ -903,11 +904,12 @@
                     <connections>
                         <segue destination="1dO-r2-My7" kind="presentation" identifier="replySegue" modalTransitionStyle="crossDissolve" id="gBb-Kv-iRf"/>
                         <segue destination="BYZ-38-t0r" kind="presentation" identifier="loginSegue" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="QaB-DF-dAn"/>
+                        <segue destination="T9P-WU-4nT" kind="show" identifier="profileSegue" id="mRA-rL-QKO"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U3g-LO-xQS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1830" y="1068"/>
+            <point key="canvasLocation" x="1886" y="1662"/>
         </scene>
         <!--Web View Controller-->
         <scene sceneID="TT1-X7-xRp">
@@ -995,6 +997,123 @@
             </objects>
             <point key="canvasLocation" x="-103.125" y="1058.450704225352"/>
         </scene>
+        <!--User Profile View Controller-->
+        <scene sceneID="EVg-9g-SAA">
+            <objects>
+                <viewController id="T9P-WU-4nT" customClass="UserProfileViewController" customModule="HackerNews" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Gei-9o-PLN"/>
+                        <viewControllerLayoutGuide type="bottom" id="Za8-Tg-4pa"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="tbi-Hk-wBK">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p5N-fZ-93B">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dry-a3-poG" userLabel="contentView">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="1262"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hacker" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0cw-He-E7P">
+                                                <rect key="frame" x="8" y="22" width="304" height="26"/>
+                                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="19"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="126363277" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GJb-Wg-7qW">
+                                                <rect key="frame" x="14" y="56" width="146" height="23.5"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="146" id="D1q-HO-kno"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ntr-FE-p5m">
+                                                <rect key="frame" x="14" y="111" width="298" height="1138"/>
+                                                <string key="text">None of this is new, but what may not be obvious (and wasn't, to me) is that each of the messaging methods has a couple helpful ways of formatting your output. The following examples use console.log(), but all of the methods in this group act in the same way.None of this is new, but what may not be obvious (and wasn't, to me) is that each of the messaging methods has a couple helpful ways of formatting your output. The following examples use console.log(), but all of the methods in this group act in the same way.None of this is new, but what may not be obvious (and wasn't, to me) is that each of the messaging methods has a couple helpful ways of formatting your output. The following examples use console.log(), but all of the methods in this group act in the same way.None of this is new, but what may not be obvious (and wasn't, to me) is that each of the messaging methods has a couple helpful ways of formatting your output. The following examples use console.log(), but all of the methods in this group act in the same way.None of this is new, but what may not be obvious (and wasn't, to me) is that each of the messaging methods has a couple helpful ways of formatting your output. The following examples use console.log(), but all of the methods in this group act in the same way.None of this is new, but what may not be obvious (and wasn't, to me) is that each of the messaging methods has a couple helpful ways of formatting your output. The following examples use console.log(), but all of the methods in this group act in the same way.None of this is new, but what may not be obvious (and wasn't, to me) is that each of the messaging methods has a couple helpful ways of formatting your output. The following examples use console.log(), but all of the methods in this group act in the same way.</string>
+                                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="karma" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Pn-83-C3x">
+                                                <rect key="frame" x="66" y="82.5" width="42.5" height="20.5"/>
+                                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
+                                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="avg" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Nb-o3-hJk">
+                                                <rect key="frame" x="226.5" y="79.5" width="25" height="20.5"/>
+                                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
+                                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4.333232" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dvq-4d-0gD">
+                                                <rect key="frame" x="166" y="56" width="146" height="23.5"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="146" id="0lX-EM-RTz"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="GJb-Wg-7qW" firstAttribute="leading" secondItem="dry-a3-poG" secondAttribute="leading" constant="14" id="0fb-JC-fBM"/>
+                                            <constraint firstItem="ntr-FE-p5m" firstAttribute="leading" secondItem="dry-a3-poG" secondAttribute="leading" constant="14" id="259-Dm-f5o"/>
+                                            <constraint firstAttribute="trailing" secondItem="Dvq-4d-0gD" secondAttribute="trailing" constant="8" id="2fE-m4-ygp"/>
+                                            <constraint firstAttribute="trailing" secondItem="0cw-He-E7P" secondAttribute="trailing" constant="8" id="3zV-b2-W25"/>
+                                            <constraint firstItem="6Pn-83-C3x" firstAttribute="baseline" secondItem="9Nb-o3-hJk" secondAttribute="baseline" constant="3" id="6Rc-qH-Fjo"/>
+                                            <constraint firstItem="ntr-FE-p5m" firstAttribute="top" secondItem="6Pn-83-C3x" secondAttribute="bottom" constant="8" symbolic="YES" id="9jJ-Hn-5dP"/>
+                                            <constraint firstItem="6Pn-83-C3x" firstAttribute="top" secondItem="GJb-Wg-7qW" secondAttribute="bottom" constant="3" id="IU1-Jf-G7o"/>
+                                            <constraint firstAttribute="bottom" secondItem="ntr-FE-p5m" secondAttribute="bottom" constant="13" id="Maz-rc-CFq"/>
+                                            <constraint firstItem="0cw-He-E7P" firstAttribute="top" secondItem="dry-a3-poG" secondAttribute="top" constant="22" id="QAW-DE-5Gi"/>
+                                            <constraint firstItem="Dvq-4d-0gD" firstAttribute="baseline" secondItem="GJb-Wg-7qW" secondAttribute="baseline" id="S3k-5X-msv"/>
+                                            <constraint firstItem="GJb-Wg-7qW" firstAttribute="centerX" secondItem="6Pn-83-C3x" secondAttribute="centerX" id="V2B-rn-Oea"/>
+                                            <constraint firstItem="GJb-Wg-7qW" firstAttribute="top" secondItem="0cw-He-E7P" secondAttribute="bottom" constant="8" id="ceS-bw-HxG"/>
+                                            <constraint firstItem="Dvq-4d-0gD" firstAttribute="leading" secondItem="GJb-Wg-7qW" secondAttribute="trailing" constant="6" id="eUN-ma-aNM"/>
+                                            <constraint firstAttribute="trailing" secondItem="ntr-FE-p5m" secondAttribute="trailing" constant="8" id="hRr-a4-dpV"/>
+                                            <constraint firstItem="Dvq-4d-0gD" firstAttribute="centerX" secondItem="9Nb-o3-hJk" secondAttribute="centerX" id="oYi-xW-8UK"/>
+                                            <constraint firstItem="0cw-He-E7P" firstAttribute="leading" secondItem="dry-a3-poG" secondAttribute="leading" constant="8" id="vZe-5P-RYk"/>
+                                        </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="eUN-ma-aNM"/>
+                                            </mask>
+                                        </variation>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="dry-a3-poG" secondAttribute="trailing" id="JBE-5E-JWz"/>
+                                    <constraint firstItem="dry-a3-poG" firstAttribute="leading" secondItem="p5N-fZ-93B" secondAttribute="leading" id="KYu-pc-VNt"/>
+                                    <constraint firstItem="dry-a3-poG" firstAttribute="top" secondItem="p5N-fZ-93B" secondAttribute="top" id="kNg-Pm-yH2"/>
+                                    <constraint firstAttribute="bottom" secondItem="dry-a3-poG" secondAttribute="bottom" id="kXd-lo-cZb"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="p5N-fZ-93B" firstAttribute="top" secondItem="tbi-Hk-wBK" secondAttribute="top" id="GHn-v7-oVl"/>
+                            <constraint firstItem="p5N-fZ-93B" firstAttribute="leading" secondItem="tbi-Hk-wBK" secondAttribute="leading" id="Q4u-Aj-nWj"/>
+                            <constraint firstAttribute="width" secondItem="dry-a3-poG" secondAttribute="width" id="aZx-9i-Z7r"/>
+                            <constraint firstItem="p5N-fZ-93B" firstAttribute="bottom" secondItem="Za8-Tg-4pa" secondAttribute="top" id="gNE-Yx-gAj"/>
+                            <constraint firstAttribute="trailing" secondItem="p5N-fZ-93B" secondAttribute="trailing" id="guW-ZK-gwn"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="aboutLabel" destination="ntr-FE-p5m" id="piq-XB-zbv"/>
+                        <outlet property="averageLabel" destination="Dvq-4d-0gD" id="Igt-Hb-ACg"/>
+                        <outlet property="karmaLabel" destination="GJb-Wg-7qW" id="3hs-mg-SiP"/>
+                        <outlet property="nameLabel" destination="0cw-He-E7P" id="ySf-X2-eij"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BUH-Mb-eBa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2088" y="913"/>
+        </scene>
     </scenes>
     <resources>
         <image name="action-share" width="19" height="27"/>
@@ -1012,7 +1131,8 @@
         <image name="input-outline" width="7" height="44"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="QaB-DF-dAn"/>
+        <segue reference="ejA-ZY-xk4"/>
+        <segue reference="GEt-fF-gmw"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
 </document>

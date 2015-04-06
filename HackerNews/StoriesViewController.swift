@@ -199,6 +199,11 @@ class StoriesViewController: UITableViewController,MenuViewControllerDelegate,St
             toView.delegate = self
         }
 
+        if segue.identifier == "profileSegue" {
+            let toView = segue.destinationViewController as UserProfileViewController
+            let indexPath = tableView.indexPathForCell(sender as UITableViewCell)!
+            toView.userName = stories[indexPath.row].Username
+        }
     }
     
     // MARK: StoryTableViewCellDelegate
@@ -227,6 +232,10 @@ class StoriesViewController: UITableViewController,MenuViewControllerDelegate,St
         performSegueWithIdentifier("commentsSegue", sender: cell)
     }
 
+    
+    func storyTableViewCellDidTouchAuthorLabel(cell: StoryCell, sender: AnyObject) {
+        performSegueWithIdentifier("profileSegue", sender: cell)
+    }
     // MARK: LoginViewControllerDelegate
     
     func loginViewControllerDidLogin(controller: LoginViewController) {
