@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6724" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="TnO-Zy-QyX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="TnO-Zy-QyX">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6711"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -44,7 +44,7 @@
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" minimumFontSize="17" background="input-outline" translatesAutoresizingMaskIntoConstraints="NO" id="Ur7-bV-eYM" customClass="DesignableTextField" customModule="HackerNews" customModuleProvider="target">
+                                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Username" minimumFontSize="17" background="input-outline" translatesAutoresizingMaskIntoConstraints="NO" id="Ur7-bV-eYM" customClass="DesignableTextField" customModule="HackerNews" customModuleProvider="target">
                                                             <rect key="frame" x="15" y="92" width="250" height="44"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="44" id="lfw-Oi-Pis"/>
@@ -317,9 +317,6 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Login" id="Okm-Sy-VrH">
                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                            <connections>
-                                <action selector="didPressLoginButton:" destination="6NY-zm-yn8" id="pOL-j9-ZlY"/>
-                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
@@ -327,16 +324,16 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </refreshControl>
                     <connections>
-                        <outlet property="loginButton" destination="Okm-Sy-VrH" id="wUE-HT-qqa"/>
                         <segue destination="ZhE-gf-J9I" kind="presentation" identifier="webSegue" id="xQU-ul-fcL"/>
                         <segue destination="3hc-HK-sUt" kind="show" identifier="commentsSegue" id="ny3-BO-SdR"/>
                         <segue destination="BYZ-38-t0r" kind="presentation" identifier="loginSegue" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="GEt-fF-gmw"/>
                         <segue destination="T9P-WU-4nT" kind="show" identifier="profileSegue" id="ejA-ZY-xk4"/>
+                        <segue destination="mnD-uZ-jrS" kind="presentation" identifier="postSegue" id="cf8-9j-nkt"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3v6-RU-dwp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1483" y="1092"/>
+            <point key="canvasLocation" x="1312" y="1092"/>
         </scene>
         <!--Menu View Controller-->
         <scene sceneID="4xQ-nS-HNm">
@@ -521,7 +518,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cXv-DZ-aIV" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="xfz-kL-Rh4" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2214" y="424"/>
+            <point key="canvasLocation" x="2287" y="328"/>
         </scene>
         <!--Web View Controller-->
         <scene sceneID="4iQ-EA-I7T">
@@ -1114,7 +1111,174 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BUH-Mb-eBa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2088" y="913"/>
+            <point key="canvasLocation" x="2218" y="1042"/>
+        </scene>
+        <!--Post View Controller-->
+        <scene sceneID="vs5-qi-YJf">
+            <objects>
+                <viewController id="mnD-uZ-jrS" customClass="PostViewController" customModule="HackerNews" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ENS-Hv-83S"/>
+                        <viewControllerLayoutGuide type="bottom" id="tli-JE-Tpy"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="j7W-cp-Wgg">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9pf-Do-aIp">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="RHA-5H-7Hj"/>
+                                </constraints>
+                                <color key="barTintColor" red="0.96078431369999995" green="0.3971268503" blue="0.032380756580000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="20"/>
+                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </textAttributes>
+                                <items>
+                                    <navigationItem title="Post" id="VQm-la-nlv">
+                                        <barButtonItem key="leftBarButtonItem" image="icon-close" id="22J-46-o3A">
+                                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <connections>
+                                                <action selector="cancel:" destination="mnD-uZ-jrS" id="OKG-Vi-lEV"/>
+                                                <segue destination="xwg-hl-iqh" kind="unwind" unwindAction="unwindToViewController:" id="GNm-UG-t0S"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="Rda-OS-2ny">
+                                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <connections>
+                                                <action selector="done:" destination="mnD-uZ-jrS" id="oKx-qO-Rbs"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Title" minimumFontSize="17" background="input-outline" translatesAutoresizingMaskIntoConstraints="NO" id="sxI-9H-W4J" customClass="DesignableTextField" customModule="HackerNews" customModuleProvider="target">
+                                <rect key="frame" x="11" y="79" width="298" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="0JQ-jH-7sr"/>
+                                    <constraint firstAttribute="height" constant="44" id="3Ww-Ky-p85"/>
+                                    <constraint firstAttribute="height" constant="35" id="tZq-Ww-7Pm"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="16"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="leftPadding">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="rightPadding">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="3Ww-Ky-p85"/>
+                                        <exclude reference="tZq-Ww-7Pm"/>
+                                    </mask>
+                                </variation>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="URL" minimumFontSize="17" background="input-outline" translatesAutoresizingMaskIntoConstraints="NO" id="lGc-Ui-sbC" customClass="DesignableTextField" customModule="HackerNews" customModuleProvider="target">
+                                <rect key="frame" x="11" y="138" width="298" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="ygO-bg-Wyd"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="16"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="leftPadding">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="rightPadding">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="ygO-bg-Wyd"/>
+                                    </mask>
+                                </variation>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="or" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TvI-ay-IfG">
+                                <rect key="frame" x="152" y="191" width="16" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vSb-AB-DD1">
+                                <rect key="frame" x="11" y="242" width="298" height="176"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Text" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2pq-dH-pzR">
+                                <rect key="frame" x="16" y="213" width="31.5" height="20.5"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="vSb-AB-DD1" firstAttribute="leading" secondItem="j7W-cp-Wgg" secondAttribute="leadingMargin" constant="-5" id="3zn-MX-cE5"/>
+                            <constraint firstItem="sxI-9H-W4J" firstAttribute="top" secondItem="j7W-cp-Wgg" secondAttribute="top" constant="55" id="68x-SN-AuW"/>
+                            <constraint firstItem="lGc-Ui-sbC" firstAttribute="top" secondItem="sxI-9H-W4J" secondAttribute="bottom" constant="24" id="7JC-eI-UDk"/>
+                            <constraint firstItem="sxI-9H-W4J" firstAttribute="trailing" secondItem="lGc-Ui-sbC" secondAttribute="trailing" id="7Vv-g3-sFw"/>
+                            <constraint firstItem="sxI-9H-W4J" firstAttribute="centerX" secondItem="j7W-cp-Wgg" secondAttribute="centerX" id="9Em-83-vqk"/>
+                            <constraint firstItem="tli-JE-Tpy" firstAttribute="top" secondItem="vSb-AB-DD1" secondAttribute="bottom" constant="150" id="IGe-2c-kcn"/>
+                            <constraint firstItem="9pf-Do-aIp" firstAttribute="leading" secondItem="j7W-cp-Wgg" secondAttribute="leadingMargin" constant="-16" id="Iau-zB-LK9"/>
+                            <constraint firstItem="sxI-9H-W4J" firstAttribute="top" secondItem="ENS-Hv-83S" secondAttribute="bottom" constant="35" id="Ilw-vW-Liv"/>
+                            <constraint firstItem="lGc-Ui-sbC" firstAttribute="top" secondItem="sxI-9H-W4J" secondAttribute="bottom" constant="24" id="JK0-q5-Ydi"/>
+                            <constraint firstItem="sxI-9H-W4J" firstAttribute="leading" secondItem="j7W-cp-Wgg" secondAttribute="leadingMargin" constant="-5" id="JUH-Al-YG3"/>
+                            <constraint firstItem="sxI-9H-W4J" firstAttribute="leading" secondItem="lGc-Ui-sbC" secondAttribute="leading" id="O88-dH-7Bc"/>
+                            <constraint firstItem="sxI-9H-W4J" firstAttribute="top" secondItem="9pf-Do-aIp" secondAttribute="bottom" constant="15" id="PNW-AB-QyG"/>
+                            <constraint firstAttribute="centerX" secondItem="sxI-9H-W4J" secondAttribute="centerX" id="Tlm-j5-BhP"/>
+                            <constraint firstItem="sxI-9H-W4J" firstAttribute="leading" secondItem="lGc-Ui-sbC" secondAttribute="leading" id="Yhw-KN-AGo"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="vSb-AB-DD1" secondAttribute="trailing" constant="-5" id="Yoo-7H-dIy"/>
+                            <constraint firstItem="2pq-dH-pzR" firstAttribute="top" secondItem="TvI-ay-IfG" secondAttribute="bottom" id="ZId-sc-zHc"/>
+                            <constraint firstItem="sxI-9H-W4J" firstAttribute="centerX" secondItem="9pf-Do-aIp" secondAttribute="centerX" id="Zkm-DT-qLI"/>
+                            <constraint firstItem="9pf-Do-aIp" firstAttribute="top" secondItem="j7W-cp-Wgg" secondAttribute="topMargin" id="cYv-Tn-9jM"/>
+                            <constraint firstItem="sxI-9H-W4J" firstAttribute="trailing" secondItem="lGc-Ui-sbC" secondAttribute="trailing" id="d7o-b5-Ky5"/>
+                            <constraint firstItem="sxI-9H-W4J" firstAttribute="height" secondItem="lGc-Ui-sbC" secondAttribute="height" id="fg9-wc-g74"/>
+                            <constraint firstItem="vSb-AB-DD1" firstAttribute="top" secondItem="2pq-dH-pzR" secondAttribute="bottom" constant="8.5" id="gOL-It-Vgv"/>
+                            <constraint firstItem="2pq-dH-pzR" firstAttribute="leading" secondItem="j7W-cp-Wgg" secondAttribute="leadingMargin" id="hDT-yZ-dM9"/>
+                            <constraint firstItem="sxI-9H-W4J" firstAttribute="centerX" secondItem="vSb-AB-DD1" secondAttribute="centerX" id="hP4-x5-ac4"/>
+                            <constraint firstItem="vSb-AB-DD1" firstAttribute="top" secondItem="TvI-ay-IfG" secondAttribute="bottom" constant="28" id="ivb-Fa-MXi"/>
+                            <constraint firstItem="TvI-ay-IfG" firstAttribute="top" secondItem="lGc-Ui-sbC" secondAttribute="bottom" constant="20" id="lJw-AJ-kJ7"/>
+                            <constraint firstItem="sxI-9H-W4J" firstAttribute="width" secondItem="lGc-Ui-sbC" secondAttribute="width" id="mSr-zQ-pjg"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="9pf-Do-aIp" secondAttribute="trailing" constant="-16" id="muJ-eZ-Msz"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="sxI-9H-W4J" secondAttribute="trailing" constant="-5" id="tA7-pz-unK"/>
+                            <constraint firstItem="TvI-ay-IfG" firstAttribute="centerX" secondItem="lGc-Ui-sbC" secondAttribute="centerX" id="txK-31-ivQ"/>
+                            <constraint firstItem="sxI-9H-W4J" firstAttribute="centerX" secondItem="TvI-ay-IfG" secondAttribute="centerX" id="vZl-fW-g9V"/>
+                            <constraint firstItem="sxI-9H-W4J" firstAttribute="leading" secondItem="j7W-cp-Wgg" secondAttribute="leadingMargin" constant="-5" id="y5j-op-rMp"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="68x-SN-AuW"/>
+                                <exclude reference="Ilw-vW-Liv"/>
+                                <exclude reference="JUH-Al-YG3"/>
+                                <exclude reference="Tlm-j5-BhP"/>
+                                <exclude reference="Yhw-KN-AGo"/>
+                                <exclude reference="Zkm-DT-qLI"/>
+                                <exclude reference="d7o-b5-Ky5"/>
+                                <exclude reference="hP4-x5-ac4"/>
+                                <exclude reference="tA7-pz-unK"/>
+                                <exclude reference="vZl-fW-g9V"/>
+                                <exclude reference="7JC-eI-UDk"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="cancel" destination="22J-46-o3A" id="VB6-Ii-hkz"/>
+                        <outlet property="done" destination="Rda-OS-2ny" id="gdE-yY-IdW"/>
+                        <outlet property="textView" destination="vSb-AB-DD1" id="EtO-f0-wNZ"/>
+                        <outlet property="titleTextField" destination="sxI-9H-W4J" id="IMF-Wd-Gok"/>
+                        <outlet property="urlTextField" destination="lGc-Ui-sbC" id="cWQ-2H-V0Z"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jQe-XY-mxR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="xwg-hl-iqh" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="889" y="337"/>
         </scene>
     </scenes>
     <resources>

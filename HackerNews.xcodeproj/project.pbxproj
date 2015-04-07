@@ -57,6 +57,7 @@
 		0570B6351AC91C7200BBC58A /* CommentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0570B6341AC91C7200BBC58A /* CommentsViewController.swift */; };
 		05933EA01ACBE852000E199D /* ReplyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05933E9F1ACBE852000E199D /* ReplyViewController.swift */; };
 		05999DB91ACE6A2900C382F0 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05999DB81ACE6A2900C382F0 /* UserProfileViewController.swift */; };
+		05D6F5791AD39B5800B3A9F1 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D6F5781AD39B5800B3A9F1 /* PostViewController.swift */; };
 		6BCB326FBCFAEFDCB81C88A0 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CEC82202F041DFC30EB8274 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -188,6 +189,7 @@
 		0570B6341AC91C7200BBC58A /* CommentsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentsViewController.swift; sourceTree = "<group>"; };
 		05933E9F1ACBE852000E199D /* ReplyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReplyViewController.swift; sourceTree = "<group>"; };
 		05999DB81ACE6A2900C382F0 /* UserProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
+		05D6F5781AD39B5800B3A9F1 /* PostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		7745D2007F91233CC6DC6683 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		7CEC82202F041DFC30EB8274 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		E73AA9A8F9F62B12F8A9F86A /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -245,6 +247,7 @@
 				054303631ACE838000F2314F /* HNService.swift */,
 				054303641ACE838000F2314F /* SwiftyJSON.swift */,
 				05999DB81ACE6A2900C382F0 /* UserProfileViewController.swift */,
+				05D6F5781AD39B5800B3A9F1 /* PostViewController.swift */,
 				053132AF1AC57C77005AEFAE /* StoryCell.swift */,
 				053132AA1AC53955005AEFAE /* MenuViewController.swift */,
 				053132A81AC5328C005AEFAE /* StoriesViewController.swift */,
@@ -573,6 +576,7 @@
 				0531329F1AC5277D005AEFAE /* SpringButton.swift in Sources */,
 				0531328C1AC5277D005AEFAE /* AsyncImageView.swift in Sources */,
 				053132921AC5277D005AEFAE /* DesignableTabBarController.swift in Sources */,
+				05D6F5791AD39B5800B3A9F1 /* PostViewController.swift in Sources */,
 				0531328D1AC5277D005AEFAE /* AutoTextView.swift in Sources */,
 				053132BD1AC68DCA005AEFAE /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
 				05999DB91ACE6A2900C382F0 /* UserProfileViewController.swift in Sources */,

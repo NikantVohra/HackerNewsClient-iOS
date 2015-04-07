@@ -191,6 +191,7 @@ class CommentsViewController: UITableViewController,ReplyViewControllerDelegate,
     
     func refreshComments() {
         self.refreshControl?.beginRefreshing()
+        view.showLoading()
         loadCommments()
     }
     

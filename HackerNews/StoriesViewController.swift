@@ -19,7 +19,7 @@ class StoriesViewController: UITableViewController,MenuViewControllerDelegate,St
     var shouldLoadNewPosts = true
     var nextPageUrlAddition: String? = nil
     
-    @IBOutlet weak var loginButton: UIBarButtonItem!
+    
     struct Constants {
         static var StoriesLimit = 10
     }
@@ -33,6 +33,7 @@ class StoriesViewController: UITableViewController,MenuViewControllerDelegate,St
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.addBarButtonItems()
         tableView.estimatedRowHeight = 100
         tableView.rowHeight = UITableViewAutomaticDimension
         loadStories(section)
@@ -44,9 +45,10 @@ class StoriesViewController: UITableViewController,MenuViewControllerDelegate,St
         
     }
     
+    
 
     
-    @IBAction func didPressLoginButton(sender: AnyObject) {
+    func didPressLoginButton(sender: AnyObject) {
         if(!HNManager.sharedManager().userIsLoggedIn()) {
             performSegueWithIdentifier("loginSegue", sender: self)
         }
@@ -105,6 +107,9 @@ class StoriesViewController: UITableViewController,MenuViewControllerDelegate,St
  
     func refreshStories() {
         self.refreshControl?.beginRefreshing()
+        view.showLoading()
+        shouldLoadNewPosts = true
+        nextPageUrlAddition = nil
         loadStories(section)
     }
     
@@ -166,7 +171,6 @@ class StoriesViewController: UITableViewController,MenuViewControllerDelegate,St
     func didSelectMenuOption(newSection : PostFilterType) {
         view.showLoading()
         shouldLoadNewPosts = true
-        nextPageUrlAddition = nil
         section = newSection
         nextPageUrlAddition = nil
         loadStories(section)
@@ -256,6 +260,28 @@ class StoriesViewController: UITableViewController,MenuViewControllerDelegate,St
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
         self.presentViewController(alert, animated: true, completion: nil)
     }
+    
+    var composeButton : UIBarButtonItem!
+    var loginButton : UIBarButtonItem!
+    
+    func addBarButtonItems() {
+        composeButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Compose, target: self, action: (Selector("showPostController")))
+        loginButton  = UIBarButtonItem(title: "Login", style: .Plain, target: self, action: Selector("didPressLoginButton:"))
+        self.navigationItem.rightBarButtonItems = [loginButton , composeButton]
+
+    }
+    
+    func showPostController() {
+        if HNManager.sharedManager().userIsLoggedIn() {
+            performSegueWithIdentifier("postSegue", sender: self)
+        }
+        else {
+            performSegueWithIdentifier("loginSegue", sender: self)
+        }
+    }
+    
+    
+    
     
     
 }
