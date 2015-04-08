@@ -13,16 +13,16 @@ $ git clone https://github.com/NikantVohra/HackerNewsClient-iOS
 $ cd HackerNewsClient-iOS
 ```
     
-2) Initialize submodule dependancies
+2) Install the required dependencies
 
 ```
-$ git submodule update --init --recursive
+$ pod install
 ```
 
-3) Open the project in Xcode
+3) Open the workspace project in Xcode
 
 ```
-$ open HackerNews.xcodeproj
+$ open HackerNews.xcworkspace
 ```
 
 4) Compile and run the app in your simulator
