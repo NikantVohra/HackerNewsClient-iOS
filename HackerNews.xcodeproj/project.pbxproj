@@ -52,11 +52,12 @@
 		053132BD1AC68DCA005AEFAE /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 053132B91AC68DCA005AEFAE /* UIScrollView+TPKeyboardAvoidingAdditions.m */; };
 		054303651ACE838000F2314F /* HNService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 054303631ACE838000F2314F /* HNService.swift */; };
 		054303661ACE838000F2314F /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 054303641ACE838000F2314F /* SwiftyJSON.swift */; };
-		0543037D1AD2C65F00F2314F /* Alamofire.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 054303731AD2C5EB00F2314F /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0570B6331AC91AC700BBC58A /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0570B6321AC91AC700BBC58A /* CommentCell.swift */; };
 		0570B6351AC91C7200BBC58A /* CommentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0570B6341AC91C7200BBC58A /* CommentsViewController.swift */; };
 		05933EA01ACBE852000E199D /* ReplyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05933E9F1ACBE852000E199D /* ReplyViewController.swift */; };
 		05999DB91ACE6A2900C382F0 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05999DB81ACE6A2900C382F0 /* UserProfileViewController.swift */; };
+		05D05C311AD3DDE90056DC41 /* Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D05C301AD3DDE90056DC41 /* Alamofire.swift */; };
+		05D05C341AD3F11A0056DC41 /* icon-120.png in Resources */ = {isa = PBXBuildFile; fileRef = 05D05C331AD3F11A0056DC41 /* icon-120.png */; };
 		05D6F5791AD39B5800B3A9F1 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D6F5781AD39B5800B3A9F1 /* PostViewController.swift */; };
 		6BCB326FBCFAEFDCB81C88A0 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CEC82202F041DFC30EB8274 /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -68,41 +69,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = 053132461AC52553005AEFAE;
 			remoteInfo = HackerNews;
-		};
-		054303721AD2C5EB00F2314F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 0543036B1AD2C5EB00F2314F /* Alamofire.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = F8111E3319A95C8B0040E7D1;
-			remoteInfo = "Alamofire iOS";
-		};
-		054303741AD2C5EB00F2314F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 0543036B1AD2C5EB00F2314F /* Alamofire.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 4DD67C0B1A5C55C900ED2280;
-			remoteInfo = "Alamofire OSX";
-		};
-		054303761AD2C5EB00F2314F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 0543036B1AD2C5EB00F2314F /* Alamofire.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = F8111E3E19A95C8B0040E7D1;
-			remoteInfo = "Alamofire iOS Tests";
-		};
-		054303781AD2C5EB00F2314F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 0543036B1AD2C5EB00F2314F /* Alamofire.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = F829C6B21A7A94F100A2CD59;
-			remoteInfo = "Alamofire OSX Tests";
-		};
-		0543037A1AD2C61D00F2314F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 0543036B1AD2C5EB00F2314F /* Alamofire.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = F8111E3219A95C8B0040E7D1;
-			remoteInfo = "Alamofire iOS";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -118,11 +84,10 @@
 		};
 		0543037C1AD2C63D00F2314F /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 12;
 			dstPath = "Copy Frameworks";
 			dstSubfolderSpec = 10;
 			files = (
-				0543037D1AD2C65F00F2314F /* Alamofire.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -183,12 +148,13 @@
 		053132B91AC68DCA005AEFAE /* UIScrollView+TPKeyboardAvoidingAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+TPKeyboardAvoidingAdditions.m"; sourceTree = "<group>"; };
 		054303631ACE838000F2314F /* HNService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HNService.swift; sourceTree = "<group>"; };
 		054303641ACE838000F2314F /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
-		0543036B1AD2C5EB00F2314F /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = Alamofire/Alamofire.xcodeproj; sourceTree = "<group>"; };
 		055F31A91ACAED36000E42A5 /* HackerNews-BridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HackerNews-BridgingHeader.h"; sourceTree = "<group>"; };
 		0570B6321AC91AC700BBC58A /* CommentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
 		0570B6341AC91C7200BBC58A /* CommentsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentsViewController.swift; sourceTree = "<group>"; };
 		05933E9F1ACBE852000E199D /* ReplyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReplyViewController.swift; sourceTree = "<group>"; };
 		05999DB81ACE6A2900C382F0 /* UserProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
+		05D05C301AD3DDE90056DC41 /* Alamofire.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alamofire.swift; sourceTree = "<group>"; };
+		05D05C331AD3F11A0056DC41 /* icon-120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-120.png"; sourceTree = "<group>"; };
 		05D6F5781AD39B5800B3A9F1 /* PostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		7745D2007F91233CC6DC6683 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		7CEC82202F041DFC30EB8274 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -217,7 +183,6 @@
 		0531323E1AC52553005AEFAE = {
 			isa = PBXGroup;
 			children = (
-				0543036B1AD2C5EB00F2314F /* Alamofire.xcodeproj */,
 				053132491AC52553005AEFAE /* HackerNews */,
 				0531325F1AC52553005AEFAE /* HackerNewsTests */,
 				053132481AC52553005AEFAE /* Products */,
@@ -238,6 +203,7 @@
 		053132491AC52553005AEFAE /* HackerNews */ = {
 			isa = PBXGroup;
 			children = (
+				05D05C321AD3F10C0056DC41 /* Resources */,
 				053132B11AC68DCA005AEFAE /* TPKeyboardAvoiding */,
 				0531326C1AC5277D005AEFAE /* Spring */,
 				0531324C1AC52553005AEFAE /* AppDelegate.swift */,
@@ -245,6 +211,7 @@
 				055F31A91ACAED36000E42A5 /* HackerNews-BridgingHeader.h */,
 				053132AD1AC54652005AEFAE /* WebViewController.swift */,
 				054303631ACE838000F2314F /* HNService.swift */,
+				05D05C301AD3DDE90056DC41 /* Alamofire.swift */,
 				054303641ACE838000F2314F /* SwiftyJSON.swift */,
 				05999DB81ACE6A2900C382F0 /* UserProfileViewController.swift */,
 				05D6F5781AD39B5800B3A9F1 /* PostViewController.swift */,
@@ -339,15 +306,12 @@
 			path = TPKeyboardAvoiding;
 			sourceTree = "<group>";
 		};
-		0543036C1AD2C5EB00F2314F /* Products */ = {
+		05D05C321AD3F10C0056DC41 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				054303731AD2C5EB00F2314F /* Alamofire.framework */,
-				054303751AD2C5EB00F2314F /* Alamofire.framework */,
-				054303771AD2C5EB00F2314F /* Alamofire iOS Tests.xctest */,
-				054303791AD2C5EB00F2314F /* Alamofire OSX Tests.xctest */,
+				05D05C331AD3F11A0056DC41 /* icon-120.png */,
 			);
-			name = Products;
+			name = Resources;
 			sourceTree = "<group>";
 		};
 		88C598836E9BFDEC2E61A29A /* Frameworks */ = {
@@ -385,7 +349,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				0543037B1AD2C61D00F2314F /* PBXTargetDependency */,
 			);
 			name = HackerNews;
 			productName = HackerNews;
@@ -421,6 +384,7 @@
 				TargetAttributes = {
 					053132461AC52553005AEFAE = {
 						CreatedOnToolsVersion = 6.2;
+						DevelopmentTeam = E5HMDQRS6Z;
 					};
 					0531325B1AC52553005AEFAE = {
 						CreatedOnToolsVersion = 6.2;
@@ -439,12 +403,6 @@
 			mainGroup = 0531323E1AC52553005AEFAE;
 			productRefGroup = 053132481AC52553005AEFAE /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 0543036C1AD2C5EB00F2314F /* Products */;
-					ProjectRef = 0543036B1AD2C5EB00F2314F /* Alamofire.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				053132461AC52553005AEFAE /* HackerNews */,
@@ -453,37 +411,6 @@
 		};
 /* End PBXProject section */
 
-/* Begin PBXReferenceProxy section */
-		054303731AD2C5EB00F2314F /* Alamofire.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = Alamofire.framework;
-			remoteRef = 054303721AD2C5EB00F2314F /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		054303751AD2C5EB00F2314F /* Alamofire.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = Alamofire.framework;
-			remoteRef = 054303741AD2C5EB00F2314F /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		054303771AD2C5EB00F2314F /* Alamofire iOS Tests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = "Alamofire iOS Tests.xctest";
-			remoteRef = 054303761AD2C5EB00F2314F /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		054303791AD2C5EB00F2314F /* Alamofire OSX Tests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = "Alamofire OSX Tests.xctest";
-			remoteRef = 054303781AD2C5EB00F2314F /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
-
 /* Begin PBXResourcesBuildPhase section */
 		053132451AC52553005AEFAE /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
@@ -491,6 +418,7 @@
 			files = (
 				053132971AC5277D005AEFAE /* Info.plist in Resources */,
 				053132521AC52553005AEFAE /* Main.storyboard in Resources */,
+				05D05C341AD3F11A0056DC41 /* icon-120.png in Resources */,
 				053132571AC52553005AEFAE /* LaunchScreen.xib in Resources */,
 				053132541AC52553005AEFAE /* Images.xcassets in Resources */,
 				0531329A1AC5277D005AEFAE /* LoadingView.xib in Resources */,
@@ -550,6 +478,7 @@
 				0531329B1AC5277D005AEFAE /* Misc.swift in Sources */,
 				053132901AC5277D005AEFAE /* DesignableImageView.swift in Sources */,
 				053132A01AC5277D005AEFAE /* SpringImageView.swift in Sources */,
+				05D05C311AD3DDE90056DC41 /* Alamofire.swift in Sources */,
 				0531324F1AC52553005AEFAE /* LoginViewController.swift in Sources */,
 				054303661ACE838000F2314F /* SwiftyJSON.swift in Sources */,
 				05933EA01ACBE852000E199D /* ReplyViewController.swift in Sources */,
@@ -607,11 +536,6 @@
 			target = 053132461AC52553005AEFAE /* HackerNews */;
 			targetProxy = 0531325D1AC52553005AEFAE /* PBXContainerItemProxy */;
 		};
-		0543037B1AD2C61D00F2314F /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "Alamofire iOS";
-			targetProxy = 0543037A1AD2C61D00F2314F /* PBXContainerItemProxy */;
-		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
@@ -653,6 +577,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -669,6 +594,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -696,6 +622,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -706,6 +633,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -718,11 +646,17 @@
 			baseConfigurationReference = 7745D2007F91233CC6DC6683 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = HackerNews/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "HackerNews/HackerNews-BridgingHeader.h";
+				TARGETED_DEVICE_FAMILY = 1;
+				VALID_ARCHS = "armv7 armv7s arm64";
 			};
 			name = Debug;
 		};
@@ -731,11 +665,17 @@
 			baseConfigurationReference = E73AA9A8F9F62B12F8A9F86A /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = HackerNews/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "HackerNews/HackerNews-BridgingHeader.h";
+				TARGETED_DEVICE_FAMILY = 1;
+				VALID_ARCHS = "armv7 armv7s arm64";
 			};
 			name = Release;
 		};
@@ -743,6 +683,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Akshay Krishnaiah (E5HMDQRS6Z)";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -752,6 +694,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = HackerNewsTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HackerNews.app/HackerNews";
@@ -762,11 +705,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Akshay Krishnaiah (E5HMDQRS6Z)";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = HackerNewsTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HackerNews.app/HackerNews";
